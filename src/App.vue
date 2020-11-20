@@ -1,60 +1,75 @@
 <template>
   <v-app>
+    <!-- アプリケーションバ ー-->
     <v-app-bar
       app
-      color="primary"
+      color="#3698CC"
+      dence
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+    <v-app-bar-title>Long text Q&A Demonstration</v-app-bar-title>
     </v-app-bar>
 
+    <!-- ナビゲーションドロワー -->
+    <v-navigation-drawer 
+            app 
+            permanent 
+            expandOnHover 
+            dark 
+            color="primary"
+            >
+      <v-list-item >
+        <v-list-item-content color="primary">
+          <v-list-item-title class="title">
+            Menu
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list
+        dense
+        nav
+      >
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          :to="item.link"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title >{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!-- コンテンツ-->
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
-
   components: {
-    HelloWorld,
   },
-
-  data: () => ({
-    //
-  }),
+  data: () => {
+    return{
+        items: [
+          { title: 'Home', icon: 'mdi-home', link:'/'},
+          { title: 'Choose Dataset', icon: 'mdi-text-box', link:'Choose' },
+          { title: 'Question&Answering', icon: 'mdi-help-box', link:'QA' },
+        ],
+        right: null,
+    }
+  }
 };
 </script>
