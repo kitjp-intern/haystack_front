@@ -2,6 +2,8 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
-  publicPath: './',
-  outputDir: 'docs'
+  publicPath: '/haystack_front',
+  outputDir: 'docs',
+  filenameHashing: false,
+  productionSourceMap: false,
 }
