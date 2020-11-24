@@ -1,5 +1,8 @@
 # haystack_front
 
+#WebPage
+ [GitPages](https://kitjp-intern.github.io/haystack_front/)
+
 ## Project setup
 ```
 npm install
