@@ -1,7 +1,11 @@
 <template>
-  <div id="qa">
+  <v-container id="qa">
     <h1>QA</h1>
-  </div>
+      <v-progress-linear
+      indeterminate
+      color="cyan"
+    ></v-progress-linear>
+  </v-container>
 </template>
 
 <style>

@@ -1,7 +1,7 @@
 <template>
-  <div id="choose">
+  <v-container id="choose">
      <h1>Choose</h1>
-  </div>
+  </v-container>
 </template>
 
 <script>
