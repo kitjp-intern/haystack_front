@@ -1,7 +1,7 @@
 # haystack_front
 
-#WebPage
- [GitPages](https://kitjp-intern.github.io/haystack_front/)
+## WebPage
+フロントエンド確認用ページ [GitPages](https://kitjp-intern.github.io/haystack_front/)
 
 ## Project setup
 ```
