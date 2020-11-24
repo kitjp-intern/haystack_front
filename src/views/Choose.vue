@@ -1,12 +1,23 @@
 <template>
   <v-container id="choose">
-     <h1>Choose</h1>
+    <DatasetChoose :dataset="Dataset"/>
+    <DatasetCard/>
   </v-container>
 </template>
 
 <script>
+import DatasetCard from '../components/DatasetCard'
+import DatasetChoose from '../components/DatasetChoose'
 export default {
-
+  data:() => {
+    return{
+      Dataset:""
+    }
+  },
+  components:{
+    DatasetCard,
+    DatasetChoose
+  }
 }
 </script>
 

@@ -7,7 +7,7 @@
       dence
       dark
     >
-    <v-app-bar-title>Long text Q&A Demonstration</v-app-bar-title>
+    <v-toolbar-title>Long text Q&A Demonstration</v-toolbar-title>
     </v-app-bar>
 
     <!-- ナビゲーションドロワー -->
