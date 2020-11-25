@@ -1,3 +1,4 @@
+<!-- Home data -->
 <template>
   <v-container >
     <v-row justify="center">

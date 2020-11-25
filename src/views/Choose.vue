@@ -1,3 +1,4 @@
+<!-- view Choose data -->
 <template>
   <v-container id="choose">
     <DatasetChoose :dataset="dataset"/>

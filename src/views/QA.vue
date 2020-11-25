@@ -1,7 +1,8 @@
+<!-- Q&A  -->
 <template>
 <v-container id="qa">
   <DatasetChoose :dataset="dataset"/>
-  <v-card class="pa-sm-3 pa-md-7">
+  <v-card class="pa-sm-3 pa-md-7" max-width="100%" >
     <v-card-title>Q&A</v-card-title>
     <h1 class="answer">Question</h1>
     <v-form ref="form" lazy-validation @submit.prevent>

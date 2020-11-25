@@ -74,6 +74,6 @@ export default {
 </script>
 <style scoped>
   #app{
-    background-color:lightgray
+    background-color:skyblue;
   }
 </style>
