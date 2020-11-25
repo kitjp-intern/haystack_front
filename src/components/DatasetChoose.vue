@@ -1,10 +1,11 @@
+<!--  データセットが選択された時の表示  -->
 <template>
   <v-container>
     <v-row justify="center">
-      <h1>あなたが選んだデータセットは...</h1>
+      <h2>あなたが選んだデータセットは...</h2>
     </v-row>
     <v-row justify="center">
-      <h1>{{ dataset }}</h1>
+      <h1 id="datasetname">{{ dataset }}</h1>
     </v-row>
   </v-container>
 </template>
@@ -22,5 +23,8 @@ export default {
 </script>
 
 <style>
+#datasetname{
+  color:#3698CC;
+}
 
 </style>

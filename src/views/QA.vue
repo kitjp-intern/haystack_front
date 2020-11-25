@@ -1,20 +1,22 @@
 <template>
 <v-container id="qa">
   <DatasetChoose :dataset="dataset"/>
-    <v-card class="pa-sm-3 pa-md-7">
+  <v-card class="pa-sm-3 pa-md-7">
+    <v-card-title>Q&A</v-card-title>
+    <h1 class="answer">Question</h1>
     <v-form ref="form" lazy-validation @submit.prevent>
       <v-container>
-        <v-row justify="center" align-content="center">
-          <v-col cols="2">
-          <v-text-field
-            v-model="questionForm.question"
-            label="質問"
-            outlined
-            dense
-          ></v-text-field>
-           <template v-slot:append-outer>
-             <v-btn color="primary">検索</v-btn>
-           </template>
+         <v-row justify="center" align-content="center">
+         <v-col cols="2">
+            <v-text-field
+              v-model="questionForm.question"
+              label="質問"
+              outlined
+              dense
+            ></v-text-field>
+            <template v-slot:append-outer>
+              <v-btn color="primary">検索</v-btn>
+            </template>
           </v-col>
           <v-col cols="1">
             <v-btn 
@@ -39,12 +41,12 @@
           >
           <v-dialog
             v-model="top.dialog"
-            width="600px"
+            width="400px"
           >
           <template v-slot:activator="{ on, attrs }">
               <v-card outlined link hover v-bind="attrs" v-on="on">
-                <h1>{{top.name}}</h1>
-                <h4>{{top.top}}</h4>
+                <v-card-title>{{top.name}}</v-card-title>
+                <v-card-text>{{top.top}}</v-card-text>
               </v-card>
           </template>
           <v-card>
