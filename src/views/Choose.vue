@@ -1,6 +1,6 @@
 <template>
   <v-container id="choose">
-    <DatasetChoose  :dataset="dataset"  />
+    <DatasetChoose :dataset="dataset"/>
     <v-btn  color="primary" @click="datasetChange">データを決定</v-btn>
     <v-btn to="/QA">次に進む</v-btn>
     <DatasetCard v-on:my-click="dataset=$event"/>

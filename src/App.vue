@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <!-- アプリケーションバ ー-->
     <v-app-bar
       app
@@ -72,3 +72,8 @@ export default {
   }),
 };
 </script>
+<style scoped>
+  #app{
+    background-color:lightgray
+  }
+</style>
