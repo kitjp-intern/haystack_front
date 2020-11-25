@@ -1,8 +1,8 @@
 <template>
 <v-container id="qa">
-  <DatasetChoose/>
+  <DatasetChoose :dataset="dataset"/>
   <h1>QA</h1>
-    <v-progress-linear
+  <v-progress-linear
     indeterminate
     color="cyan"
   ></v-progress-linear>
@@ -14,7 +14,14 @@ import DatasetChoose from "../components/DatasetChoose"
 export default {
   components:{
     DatasetChoose
+  },
+  props:{
+    dataset:{
+      default:"",
+      type:String
+    }
   }
+
 }
 </script>
 

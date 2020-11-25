@@ -51,7 +51,7 @@
 
     <!-- コンテンツ-->
     <v-main>
-      <router-view></router-view>
+      <keep-alive><router-view v-on:dataset-change="dataset=$event" :dataset='dataset'></router-view></keep-alive>
     </v-main>
   </v-app>
 </template>
@@ -61,15 +61,14 @@ export default {
   name: 'App',
   components: {
   },
-  data: () => {
-    return{
+  data: () => ({
         items: [
           { title: 'Home', icon: 'mdi-home', link:'/'},
           { title: 'Choose Dataset', icon: 'mdi-text-box', link:'Choose' },
           { title: 'Question&Answering', icon: 'mdi-help-box', link:'QA' },
         ],
-        right: null,
-    }
-  }
+        dataset:"",
+    
+  }),
 };
 </script>

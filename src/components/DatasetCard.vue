@@ -36,7 +36,7 @@
               <v-card-text>{{card.explain}}</v-card-text>
             </div>
           </v-expand-transition>
-          <v-btn color="primary" rounded>データセット選択</v-btn>
+          <v-btn @click="datasetChange(card.title)" color="primary" rounded>データセット選択</v-btn>
         </v-card>
       </v-col>
     </v-row>
@@ -52,7 +52,15 @@ export default {
         { title: 'Driving Dataset', content: '自動車データセット',explain:'自動車データセット〜', flex: 4, show:false},
         { title: '???', content: '??????????????',explain:'??????????????????', flex: 4, show:false },
       ],
-  })
+    datasetCard:""
+  }),
+  methods:{
+    datasetChange(dataset){
+      console.log(dataset)
+      this.datasetCard = dataset
+      this.$emit("my-click",this.datasetCard)
+    }
+  }
 }
 </script>
 
