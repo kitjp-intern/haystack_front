@@ -50,7 +50,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!-- コンテンツ-->
+    <!-- コンテンツ  -->
     <v-main>
       <keep-alive><router-view v-on:dataset-change="dataset=$event" :dataset='dataset'></router-view></keep-alive>
     </v-main>
