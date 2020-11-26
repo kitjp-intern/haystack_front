@@ -54,13 +54,11 @@ export default {
         { title: 'Driving Dataset', content: '自動車データセット',explain:'自動車データセット〜', flex: 4, show:false},
         { title: '???', content: '??????????????',explain:'??????????????????', flex: 4, show:false},
       ],
-    datasetCard:""
   }),
   methods:{
     datasetChange(dataset){
-      console.log(dataset)
-      this.datasetCard = dataset
-      this.$emit("my-click",this.datasetCard)
+      //store data change
+      this.$store.state.dataset = dataset
     }
   }
 }

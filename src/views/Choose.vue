@@ -1,7 +1,7 @@
 <!-- view Choose data -->
 <template>
   <v-container id="choose">
-    <DatasetChoose :dataset="dataset"/>
+    <DatasetChoose/>
     <v-btn 
       v-show="dataset!=null" 
       @click="datasetChange" 
@@ -9,7 +9,7 @@
       color="primary" 
       dense
       >データを決定し次に進む</v-btn>
-    <DatasetCard v-on:my-click="dataset=$event"/>
+    <DatasetCard/>
     {{dataset}}
   </v-container>
 </template>
@@ -20,10 +20,9 @@ import DatasetChoose from '../components/DatasetChoose'
 export default {
   data:() => ({
   }),
-  props:{
-    dataset:{
-      default:null,
-      type:String
+  computed:{
+    dataset(){
+      return this.$store.state.dataset
     }
   },
   components:{

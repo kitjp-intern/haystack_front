@@ -12,13 +12,11 @@
 
 <script>
 export default {
-  props:{
-    dataset:{
-      default:"",
-      type:String
+  computed:{
+    dataset(){
+      return this.$store.state.dataset
     }
-  }
-
+  },
 }
 </script>
 
