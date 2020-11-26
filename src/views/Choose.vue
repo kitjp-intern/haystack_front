@@ -2,9 +2,15 @@
 <template>
   <v-container id="choose">
     <DatasetChoose :dataset="dataset"/>
-    <v-btn  color="primary" @click="datasetChange">データを決定</v-btn>
-    <v-btn to="/QA">次に進む</v-btn>
+    <v-btn 
+      v-show="dataset!=null" 
+      @click="datasetChange" 
+      to="/QA" 
+      color="primary" 
+      dense
+      >データを決定し次に進む</v-btn>
     <DatasetCard v-on:my-click="dataset=$event"/>
+    {{dataset}}
   </v-container>
 </template>
 
@@ -16,7 +22,7 @@ export default {
   }),
   props:{
     dataset:{
-      default:"",
+      default:null,
       type:String
     }
   },

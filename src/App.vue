@@ -68,7 +68,7 @@ export default {
           { title: 'Choose Dataset', icon: 'mdi-text-box', link:'Choose' },
           { title: 'Question&Answering', icon: 'mdi-help-box', link:'QA' },
         ],
-        dataset:"",
+        dataset:null,
     
   }),
 };
