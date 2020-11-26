@@ -31,7 +31,6 @@ export default new Vuex.Store({
         console.log(reason.message)
        })
     },
-    }
   },
   getters: {
     getStateDataBase: (state) => state.dataBase
