@@ -25,6 +25,7 @@ export default {
     DatasetChoose
   },
   methods:{
+    //変更されたdatasetをemitする
     datasetChange(){
       this.$emit("dataset-change",this.dataset)
     }

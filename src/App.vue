@@ -1,3 +1,4 @@
+<!--大元-->
 <template>
   <v-app id="app">
     <!-- アプリケーションバ ー-->
@@ -74,6 +75,6 @@ export default {
 </script>
 <style scoped>
   #app{
-    background-color:skyblue;
+    background-color:white;
   }
 </style>
