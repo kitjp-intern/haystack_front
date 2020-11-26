@@ -5,7 +5,7 @@
       <h2>あなたが選んだデータセットは...</h2>
     </v-row>
     <v-row justify="center">
-      <h1 id="datasetname">{{ dataset }}</h1>
+      <h1 id="datasetname">{{ datasetName }}</h1>
     </v-row>
   </v-container>
 </template>
@@ -13,8 +13,8 @@
 <script>
 export default {
   computed:{
-    dataset(){
-      return this.$store.state.dataset
+    datasetName(){
+      return this.$store.state.datasetName
     }
   },
 }

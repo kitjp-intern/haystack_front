@@ -2,8 +2,8 @@
   <v-container  color="black" class="card" fluid>
     <v-row class=" pt-10" justify="center">
           <v-col
-            v-for="top in top5"
-            :key="top.title"
+            v-for="top in answer10.q"
+            :key="top.answer"
             :cols="top.flex"
           >
           <v-dialog
@@ -12,16 +12,15 @@
           >
           <template v-slot:activator="{ on, attrs }">
               <v-card outlined link hover v-bind="attrs" v-on="on">
-                <v-card-title>{{top.name}}</v-card-title>
-                <v-card-text>{{top.top}}</v-card-text>
+                <v-card-title>{{top.answer}}</v-card-title>
+                <v-card-text>{{ top.top }}</v-card-text>
               </v-card>
           </template>
           <v-card>
             <v-card-title>
-               <span class="headline">{{top.name}}</span>
+               <span class="headline">Answer:{{top.answer}}</span>
             </v-card-title>
-            <v-card-text>
-              {{top.content}}
+            <v-card-text v-html="top.context">
             </v-card-text>
           </v-card>
           </v-dialog>
@@ -41,11 +40,12 @@ export default {
       ,{top:"5",name:"55555555555.txt",content:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
     ],
     dialog:false,
-  })
+  }),
+  computed:{
+    answer10(){
+      return this.$store.state.answerTop10
+    }
+  },
 
 }
 </script>
-
-<style>
-
-</style>

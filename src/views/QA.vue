@@ -20,13 +20,6 @@ export default {
     TopKCard,
     QACard,
   },
-  props:{
-    dataset:{
-      default:"",
-      type:String
-    }
-  }
-
 }
 </script>
 

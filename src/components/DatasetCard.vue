@@ -3,16 +3,16 @@
   <v-container fluid>
     <v-row dense justify="center">
       <v-col
-        v-for="card in cards"
-        :key="card.title"
+        v-for="card in dataOutput"
+        :key="card.name"
         :cols="card.flex"
       >
         <v-card
           elevation="5"
           outlined  
         >
-          <v-card-title v-text="card.title"></v-card-title>
-          <v-card-text v-text="card.content"></v-card-text>
+          <v-card-title v-text="card.name"></v-card-title>
+          <v-card-text v-text="card.summary"></v-card-text>
           
           <v-card-actions>
             <v-btn
@@ -38,7 +38,7 @@
               <v-card-text>{{card.explain}}</v-card-text>
             </div>
           </v-expand-transition>
-          <v-btn @click="datasetChange(card.title)" color="primary" rounded>データセット選択</v-btn>
+          <v-btn @click="datasetChange(card.name)" color="primary" rounded>データセット選択</v-btn>
         </v-card>
       </v-col>
     </v-row>
@@ -49,17 +49,19 @@
 <script>
 export default {
   name:"DatasetCard",
-  data:() => ({
-    cards: [
-        { title: 'Driving Dataset', content: '自動車データセット',explain:'自動車データセット〜', flex: 4, show:false},
-        { title: '???', content: '??????????????',explain:'??????????????????', flex: 4, show:false},
-      ],
-  }),
   methods:{
     datasetChange(dataset){
       //store data change
-      this.$store.state.dataset = dataset
+      this.$store.state.datasetName = dataset
     }
+  },
+  computed:{
+    dataOutput(){
+      return this.$store.getters.getStateDataBase
+    }
+  },
+  created() {
+    this.$store.dispatch('commitDataBase')
   }
 }
 </script>

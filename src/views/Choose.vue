@@ -3,26 +3,26 @@
   <v-container id="choose">
     <DatasetChoose/>
     <v-btn 
-      v-show="dataset!=null" 
-      @click="datasetChange" 
+      v-show="datasetName!=null" 
+      @click="pushDataBase"
       to="/QA" 
       color="primary" 
       dense
       >データを決定し次に進む</v-btn>
     <DatasetCard/>
-    {{dataset}}
   </v-container>
 </template>
 
 <script>
 import DatasetCard from '../components/DatasetCard'
 import DatasetChoose from '../components/DatasetChoose'
+import axios from 'axios'
 export default {
   data:() => ({
   }),
   computed:{
-    dataset(){
-      return this.$store.state.dataset
+    datasetName(){
+      return this.$store.state.datasetName
     }
   },
   components:{
@@ -30,9 +30,10 @@ export default {
     DatasetChoose
   },
   methods:{
-    //変更されたdatasetをemitする
-    datasetChange(){
-      this.$emit("dataset-change",this.dataset)
+    pushDataBase(){
+      axios.post('https://a751440dca00.ngrok.io/post/database',{
+      database:this.datasetName
+      })
     }
   },
 }

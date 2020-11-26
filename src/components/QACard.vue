@@ -20,7 +20,7 @@
           </v-col>
           <v-col cols="1">
             <v-btn 
-             @click="query=questionForm.question"
+             @click="GetAnswer(questionForm.question)"
              color="primary"
              class="pa-1 ma-1"
             >SEND</v-btn>
@@ -28,22 +28,43 @@
         </v-row>
       </v-container>
     </v-form>
-    <h1 class="answer">Ansewer</h1>
-    <h2>{{ answer }}</h2> 
+    <h1 class="answer">Answer</h1>
+    <h2>{{ answerOutput.answer }}</h2> 
   </v-card>
 </v-container>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data:()=>({
     questionForm: {
         question: '',
     },
-    query:"",
-    answer:"texttexttexttexttexttexttexttexttext",
-  })
-
+  }),
+  computed:{
+    answerOutput(){
+      return this.$store.state.answerTop10
+    }
+  },
+  methods:{
+    GetAnswer(query){
+      let url = 'https://a751440dca00.ngrok.io/get/' + decodeURI(query);
+      axios.get(url)
+      .then(response=>{
+        for (let i=0; i < response.data.q.length; i++){
+          response.data.q[i].dialog =false
+          response.data.q[i].flex = 8
+          response.data.q[i].top = i + 1
+        }
+        console.log(response.data)
+        this.$store.state.answerTop10 = response.data
+      })
+      .catch((reason)=>{
+        console.log(reason.message)
+      })
+    }
+  },
 }
 </script>
 
