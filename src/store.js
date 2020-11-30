@@ -10,7 +10,8 @@ export default new Vuex.Store({
     datasetName:null,
     dataBase:{},
     dataSet:{},
-    answerTop10:[{answer:null}],
+    answerTop10:{},
+    answer:"",
   },
   mutations:{
     mutateDataBase(state, payload){

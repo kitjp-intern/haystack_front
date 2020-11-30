@@ -1,8 +1,8 @@
 <template>
   <v-container  color="black" class="card" fluid>
-    <v-row v-if="answer==[{answer:null}]" class=" pt-10" justify="center">
+    <v-row v-if="answer1!=[{answer:null}]" class=" pt-10" >
           <v-col
-            v-for="top in answer"
+            v-for="top in answer1"
             :key="top.answer"
             :cols="top.flex"
           >
@@ -32,24 +32,12 @@
 <script>
 export default {
   data:()=>({
-    top5: [
-      {top:"1",answer:"111111111.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"2",answer:"222222222.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"3",answer:"3333333333.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"4",answer:"44444444444.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"5",answer:"55555555555.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-    ],
     dialog:false,
   }),
   computed:{
-    answer(){
+    answer1(){
       console.log(this.$store.state.answerTop10)
-      if (this.$store.state.answerTop10=={}){
-        var asw=this.$store.state.answerTop10
-      }else{
-        asw=this.top5
-      }
-      return asw
+      return this.$store.state.answerTop10
     }
   },
 

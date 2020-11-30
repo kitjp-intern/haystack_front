@@ -30,7 +30,7 @@
       </v-container>
     </v-form>
     <h1 class="answer">Answer</h1>
-    <h2 v-if="answerOutput!=[{answer:null}]">{{ answerOutput[0].answer }}</h2> 
+    <h2>{{ answer1.answer }}</h2>
   </v-card>
   <v-snackbar
        v-model="snackBar.show"
@@ -60,6 +60,9 @@ export default {
   computed:{
     answerOutput(){
       return this.$store.state.answerTop10
+    },
+    answer1(){
+      return this.$store.state.answer
     }
   },
   methods:{
@@ -72,19 +75,13 @@ export default {
           response.data.q[i].flex = 4
           response.data.q[i].top = i + 1
         }
-        console.log(response.data)
         this.$store.state.answerTop10 = response.data.q
-        this.showSnackBar(
-                'success',
-                '通信成功'
-              )
+        this.$store.state.answer = response.data.q[0]
+        this.showSnackBar('success','通信成功')
       })
       .catch((reason)=>{
         console.log(reason.message)
-        this.showSnackBar(
-          'error',
-          '取得に失敗しました。時間をおいて再度お試しください'
-        )
+        this.showSnackBar('error','取得に失敗しました。時間をおいて再度お試しください')
       })
     },
     showSnackBar: function (color, message) {
@@ -92,7 +89,6 @@ export default {
         this.snackBar.color = color
         this.snackBar.show = true
       },
-    
   },
 }
 </script>
