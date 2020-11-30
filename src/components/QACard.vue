@@ -1,13 +1,14 @@
 <!--QAcard-->
 <template>
 <v-container id="qa">
+  <v-row justify="center">
     <v-card class="pa-sm-3 pa-md-7" max-width="100%" >
     <v-card-title>Q&A</v-card-title>
     <h1 class="answer">Question</h1>
     <v-form ref="form" lazy-validation @submit.prevent>
       <v-container>
          <v-row justify="center" align-content="center">
-         <v-col cols="2">
+         <v-col cols="8">
             <v-text-field
               v-model="questionForm.question"
               label="質問"
@@ -29,8 +30,9 @@
       </v-container>
     </v-form>
     <h1 class="answer">Answer</h1>
-    <h2>{{ answerOutput.answer }}</h2> 
+    <h2 v-if="answerOutput!=[{answer:null}]">{{ answerOutput[0].answer }}</h2> 
   </v-card>
+  </v-row>
 </v-container>
 </template>
 
@@ -54,11 +56,11 @@ export default {
       .then(response=>{
         for (let i=0; i < response.data.q.length; i++){
           response.data.q[i].dialog =false
-          response.data.q[i].flex = 8
+          response.data.q[i].flex = 4
           response.data.q[i].top = i + 1
         }
         console.log(response.data)
-        this.$store.state.answerTop10 = response.data
+        this.$store.state.answerTop10 = response.data.q
       })
       .catch((reason)=>{
         console.log(reason.message)

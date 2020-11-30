@@ -2,6 +2,8 @@
 <template>
   <v-container >
     <v-row justify="center">
+    <v-card width="800px">
+    <v-row justify="center">
     <h1>Haystack Q&Aの使い方</h1>
     </v-row>
     <v-row justify="center">
@@ -13,7 +15,8 @@
         <li>他の回答を確認したい場合はカードをクリックしてください</li>
       </ol>
     </v-row>
-
+  </v-card>
+    </v-row>
   </v-container>
 </template>
 

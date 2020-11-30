@@ -1,8 +1,10 @@
 <!-- Q&A  -->
 <template>
 <v-container id="qa">
-  <DatasetChoose :dataset="dataset"/>
-  <QACard/>
+  <DatasetChoose/>
+  <transition name="router-transition" enter-active-class="animated zoomIn" leave-active-class="animated zoomOut" appear="" mode="out-in">
+    <QACard/>
+  </transition>
   <TopKCard/>
 </v-container>
 </template>

@@ -10,7 +10,7 @@ export default new Vuex.Store({
     datasetName:null,
     dataBase:{},
     dataSet:{},
-    answerTop10:{},
+    answerTop10:[{answer:null}],
   },
   mutations:{
     mutateDataBase(state, payload){
@@ -29,8 +29,15 @@ export default new Vuex.Store({
        })
        .catch((reason) => {
         console.log(reason.message)
+        store.commit('mutateDataBase',{})
        })
     },
+    pushDataBase(state){
+      axios.post('https://a751440dca00.ngrok.io/post/database',{
+      database:state.datasetName
+      })
+    }
+
   },
   getters: {
     getStateDataBase: (state) => state.dataBase

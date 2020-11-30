@@ -52,7 +52,9 @@
 
     <!-- コンテンツ  -->
     <v-main>
-      <keep-alive><router-view v-on:dataset-change="dataset=$event" :dataset='dataset'></router-view></keep-alive>
+        <keep-alive>
+          <router-view ></router-view>
+        </keep-alive>
     </v-main>
   </v-app>
 </template>
@@ -67,13 +69,12 @@ export default {
           { title: 'Home', icon: 'mdi-home', link:'/'},
           { title: 'Choose Dataset', icon: 'mdi-text-box', link:'Choose' },
           { title: 'Question&Answering', icon: 'mdi-help-box', link:'QA' },
-        ],
-        dataset:null,
-    
+        ]
   }),
 };
 </script>
 <style scoped>
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
   #app{
     background-color:#f1fff0;
   }

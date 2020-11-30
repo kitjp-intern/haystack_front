@@ -1,8 +1,8 @@
 <template>
   <v-container  color="black" class="card" fluid>
-    <v-row class=" pt-10" justify="center">
+    <v-row v-if="answer==[{answer:null}]" class=" pt-10" justify="center">
           <v-col
-            v-for="top in answer10.q"
+            v-for="top in answer"
             :key="top.answer"
             :cols="top.flex"
           >
@@ -33,17 +33,23 @@
 export default {
   data:()=>({
     top5: [
-      {top:"1",name:"111111111.txt",content:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"2",name:"222222222.txt",content:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"3",name:"3333333333.txt",content:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"4",name:"44444444444.txt",content:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
-      ,{top:"5",name:"55555555555.txt",content:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
+      {top:"1",answer:"111111111.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
+      ,{top:"2",answer:"222222222.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
+      ,{top:"3",answer:"3333333333.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
+      ,{top:"4",answer:"44444444444.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
+      ,{top:"5",answer:"55555555555.txt",context:"texttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttexttexttexttexttextexttexttexttexttextettexttext",flex:"2",dialog:false}
     ],
     dialog:false,
   }),
   computed:{
-    answer10(){
-      return this.$store.state.answerTop10
+    answer(){
+      console.log(this.$store.state.answerTop10)
+      if (this.$store.state.answerTop10=={}){
+        var asw=this.$store.state.answerTop10
+      }else{
+        asw=this.top5
+      }
+      return asw
     }
   },
 
