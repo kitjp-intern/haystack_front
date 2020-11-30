@@ -18,12 +18,13 @@ export default new Vuex.Store({
     },
   },
   actions:{
+    //データベース受け取り
     commitDataBase:(store)=>{
       return axios.get('https://a751440dca00.ngrok.io/get/database')
       .then(response => {
         for (let i=0; i < response.data.length; i++){
-          response.data[i].show =false
-          response.data[i].flex =3
+          response.data[i].show = false
+          response.data[i].flex = 3
         }
         store.commit('mutateDataBase', response.data)
        })
@@ -32,6 +33,7 @@ export default new Vuex.Store({
         store.commit('mutateDataBase',{})
        })
     },
+    //選択されたデータベースのpost
     pushDataBase(state){
       axios.post('https://a751440dca00.ngrok.io/post/database',{
       database:state.datasetName

@@ -32,6 +32,14 @@
     <h1 class="answer">Answer</h1>
     <h2 v-if="answerOutput!=[{answer:null}]">{{ answerOutput[0].answer }}</h2> 
   </v-card>
+  <v-snackbar
+       v-model="snackBar.show"
+       :color="snackBar.color"
+       top
+       :timeout="6000"
+       class="font-weight-bold">
+      {{snackBar.message}}
+   </v-snackbar>
   </v-row>
 </v-container>
 </template>
@@ -43,6 +51,11 @@ export default {
     questionForm: {
         question: '',
     },
+    snackBar: {
+        show: false,
+        color: '',
+        message: ''
+      }
   }),
   computed:{
     answerOutput(){
@@ -61,11 +74,25 @@ export default {
         }
         console.log(response.data)
         this.$store.state.answerTop10 = response.data.q
+        this.showSnackBar(
+                'success',
+                '通信成功'
+              )
       })
       .catch((reason)=>{
         console.log(reason.message)
+        this.showSnackBar(
+          'error',
+          '取得に失敗しました。時間をおいて再度お試しください'
+        )
       })
-    }
+    },
+    showSnackBar: function (color, message) {
+        this.snackBar.message = message
+        this.snackBar.color = color
+        this.snackBar.show = true
+      },
+    
   },
 }
 </script>
