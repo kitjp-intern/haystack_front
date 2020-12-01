@@ -2,10 +2,8 @@
 <template>
 <v-container id="qa">
   <DatasetChoose/>
-  <transition name="router-transition" enter-active-class="animated zoomIn" leave-active-class="animated zoomOut" appear="" mode="out-in">
-    <QACard/>
-  </transition>
-  <TopKCard/>
+  <QACard/>
+  <TopKCard v-if="$store.state.answer!={}"/>
 </v-container>
 </template>
 

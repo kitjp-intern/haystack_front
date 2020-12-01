@@ -11,7 +11,7 @@ export default new Vuex.Store({
     dataBase:{},
     dataSet:{},
     answerTop10:{},
-    answer:"",
+    answer:{},
   },
   mutations:{
     mutateDataBase(state, payload){
@@ -21,7 +21,7 @@ export default new Vuex.Store({
   actions:{
     //データベース受け取り
     commitDataBase:(store)=>{
-      return axios.get('https://a751440dca00.ngrok.io/get/database')
+      return axios.get('https://927477f6db88.ngrok.io/get/database')
       .then(response => {
         for (let i=0; i < response.data.length; i++){
           response.data[i].show = false
@@ -36,7 +36,7 @@ export default new Vuex.Store({
     },
     //選択されたデータベースのpost
     pushDataBase(state){
-      axios.post('https://a751440dca00.ngrok.io/post/database',{
+      axios.post('https://927477f6db88.ngrok.io/post/database',{
       database:state.datasetName
       })
     }

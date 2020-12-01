@@ -2,11 +2,13 @@
 <template>
   <v-container fluid>
     <v-row dense justify="center">
+
       <v-col
         v-for="card in dataOutput"
         :key="card.name"
         :cols="card.flex"
-      >
+        >
+        <transition name="router-transition" enter-active-class="animated slideInRight" leave-active-class="animated zoomOut" appear="" mode="out-in">
         <v-card
           elevation="5"
           outlined  
@@ -40,6 +42,7 @@
           </v-expand-transition>
           <v-btn @click="datasetChange(card.name)" color="primary" rounded>データセット選択</v-btn>
         </v-card>
+             </transition>
       </v-col>
     </v-row>
   </v-container>
